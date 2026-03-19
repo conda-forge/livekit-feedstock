@@ -8,15 +8,10 @@ package:
   version: ${{ version }}
 
 source:
-  - url: https://pypi.org/packages/source/l/livekit/livekit-${{ version }}.tar.gz
-    sha256: ef826e94dd039767fcabc2f0d810b1b2335c9cf249f52320b6ab018b06d5ccd7
-  # Manually look this up for every release!
-  - url: https://github.com/livekit/rust-sdks/archive/e7faaea5ce6c70f0b4ea67e2e7db695f4e51237f.zip
-    sha256: ef826e94dd039767fcabc2f0d810b1b2335c9cf249f52320b6ab018b06d5ccd7
-    target_directory: rust
-  - url: https://raw.githubusercontent.com/livekit/python-sdks/refs/tags/protocol-v${{ version }}/LICENSE
-    sha256: c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4
-    file_name: LICENSE
+  # The build requires multiple submodule (at least two repos deep)
+  - git: https://github.com/livekit/python-sdks.git
+    tag: rtc-v${{ version }}
+    submodules: true
 
 build:
   number: 1
@@ -29,6 +24,8 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('rust') }}
     - cargo-bundle-licenses
+    - cargo-auditable
+    - libprotobuf
   host:
     - python      ${{ python_min }}.*
     - python-abi3 ${{ python_min }}.*
@@ -50,12 +47,16 @@ tests:
         - "*"
       imports:
         - livekit
+        - livekit.rtc
+        - livekit.rtc.resources
       pip_check: true
 
 about:
   summary: Python Real-time SDK for LiveKit
   license: Apache-2.0
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - livekit-rtc/rust-sdks/livekit-ffit/THIRDPARTY.yml
   homepage: https://pypi.org/project/livekit/
   repository: https://github.com/livekit/python-sdks/
   documentation: https://docs.livekit.io
