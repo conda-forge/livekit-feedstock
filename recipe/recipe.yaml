@@ -24,6 +24,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ compiler('rust') }}
+    - clangdev
     - cargo-bundle-licenses
     - cargo-auditable
     - libprotobuf
@@ -35,6 +36,9 @@ requirements:
     - wheel
     - requests
     - pip
+    - glib
+    - libva
+    - zlib
   run:
     - python >=${{ python_min }}
     - protobuf >=4.25.0
@@ -58,7 +62,7 @@ about:
   license: Apache-2.0
   license_file:
     - LICENSE
-    - livekit-rtc/rust-sdks/livekit-ffit/THIRDPARTY.yml
+    - livekit-rtc/rust-sdks/livekit-ffi/THIRDPARTY.yml
   homepage: https://pypi.org/project/livekit/
   repository: https://github.com/livekit/python-sdks/
   documentation: https://docs.livekit.io

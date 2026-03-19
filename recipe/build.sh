@@ -2,7 +2,8 @@
 
 set -euxo pipefail
 
-ls -la
+export LIBCLANG_PATH="${BUILD_PREFIX}/lib"
+export BINDGEN_EXTRA_CLANG_ARGS="--sysroot=${CONDA_BUILD_SYSROOT} -isystem ${BUILD_PREFIX}/lib/gcc/${HOST}/14.3.0/include"
 
 pushd livekit-rtc
 
