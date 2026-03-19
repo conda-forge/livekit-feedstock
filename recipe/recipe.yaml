@@ -27,6 +27,7 @@ requirements:
     - cargo-bundle-licenses
     - cargo-auditable
     - libprotobuf
+    - pkg-config
   host:
     - python      ${{ python_min }}.*
     - python-abi3 ${{ python_min }}.*
