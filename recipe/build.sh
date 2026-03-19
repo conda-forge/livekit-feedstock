@@ -6,6 +6,8 @@ ls -l
 
 export LIBCLANG_PATH="${BUILD_PREFIX}/lib"
 export BINDGEN_EXTRA_CLANG_ARGS="--sysroot=${CONDA_BUILD_SYSROOT} -isystem ${BUILD_PREFIX}/lib/gcc/${HOST}/14.3.0/include"
+export PKG_CONFIG_ALLOW_CROSS=1
+export PKG_CONFIG_ALLOW_CROSS_${CARGO_BUILD_TARGET//-/_}=1
 
 pushd livekit-rtc
 
