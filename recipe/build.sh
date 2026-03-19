@@ -2,6 +2,8 @@
 
 set -euxo pipefail
 
+ls -la
+
 pushd livekit-rtc
 
 pushd rust-sdks/livekit-ffi
