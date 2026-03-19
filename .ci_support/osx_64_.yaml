@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '11.0'
+- '12.3'
 MACOSX_SDK_VERSION:
-- '11.0'
+- '12.3'
 c_compiler:
 - clang
 c_compiler_version:
@@ -9,7 +9,7 @@ c_compiler_version:
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
-- '11.0'
+- '12.3'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -18,6 +18,8 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '19'
+glib:
+- '2'
 libprotobuf:
 - 6.31.1
 macos_machine:
@@ -31,3 +33,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+zlib:
+- '1'

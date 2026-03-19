@@ -8,6 +8,8 @@ channel_targets:
 - conda-forge main
 cxx_compiler:
 - vs2022
+glib:
+- '2'
 libprotobuf:
 - 6.31.1
 python_min:
@@ -16,3 +18,5 @@ rust_compiler:
 - rust
 target_platform:
 - win-64
+zlib:
+- '1'
