@@ -12,6 +12,12 @@ export PKG_CONFIG_ALLOW_CROSS_${CARGO_BUILD_TARGET//-/_}=1
 pushd livekit-rtc
 
 pushd rust-sdks/livekit-ffi
+if [[ "${target_platform}" == osx-* ]]; then
+  # Unset global C flags to prevent x86_64 flags leaking into arm64 host
+  # compilations during cross-compilation. The rust activation script already
+  # sets target-specific CFLAGS_<triple> for cc-rs to use.
+  unset CFLAGS CXXFLAGS CPPFLAGS LDFLAGS
+fi
 cargo auditable build --release
 cargo-bundle-licenses --format yaml --output ./THIRDPARTY.yml
 popd
