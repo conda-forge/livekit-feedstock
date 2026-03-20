@@ -1,0 +1,11 @@
+--- a/livekit-rtc/rust-sdks/webrtc-sys/include/livekit/jsep.h
++++ b/livekit-rtc/rust-sdks/webrtc-sys/include/livekit/jsep.h
+@@ -35,7 +35,7 @@
+
+ namespace livekit_ffi {
+
+-class PeerContext;
++struct PeerContext;
+
+ class IceCandidate {
+  public:

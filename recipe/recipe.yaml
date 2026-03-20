@@ -14,10 +14,10 @@ source:
     submodules: true
     patches:
       - fix-macos-wheel-tag.patch
+      - fix-struct-class-mismatch.patch
 
 build:
-  number: 1
-  skip: win
+  number: 2
   python:
     version_independent: true
 
