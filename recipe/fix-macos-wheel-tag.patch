@@ -1,0 +1,22 @@
+diff --git a/livekit-rtc/setup.py b/livekit-rtc/setup.py
+index 7e1c7df..3d42c6a 100644
+--- a/livekit-rtc/setup.py
++++ b/livekit-rtc/setup.py
+@@ -35,7 +35,15 @@ def get_platform_tag():
+             parts = target.split(".")
+             target = f"{parts[0]}.{parts[1] if len(parts) > 1 else '0'}"
+ 
+-        version_tag = target.replace(".", "_")
++        parts = target.split(".")
++        major = int(parts[0])
++        minor = int(parts[1]) if len(parts) > 1 else 0
++
++        # packaging.tags only recognizes macOS 11+ arm64/x86_64 wheels with a
++        # major-version tag (e.g. macosx_12_0_arm64), not a minor release tag.
++        if major >= 11:
++            version_tag = f"{major}_0"
++        else:
++            version_tag = f"{major}_{minor}"
+ 
+         # Check ARCHFLAGS for cross-compilation (cibuildwheel sets this)
+         archflags = os.environ.get("ARCHFLAGS", "")

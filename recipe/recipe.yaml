@@ -12,6 +12,8 @@ source:
   - git: https://github.com/livekit/python-sdks.git
     tag: rtc-v${{ version }}
     submodules: true
+    patches:
+      - fix-macos-wheel-tag.patch
 
 build:
   number: 1
