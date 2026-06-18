@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.1.8"
+  version: "1.1.9"
 
 package:
   name: livekit
@@ -17,7 +17,7 @@ source:
       - fix-struct-class-mismatch.patch
 
 build:
-  number: 2
+  number: 0
   python:
     version_independent: true
 
