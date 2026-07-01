@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.1.9"
+  version: "1.1.12"
 
 package:
   name: livekit
@@ -49,8 +49,8 @@ requirements:
     - zlib
   run:
     - python >=${{ python_min }}
-    - protobuf >=4.25.0
-    - types-protobuf >=3
+    - protobuf >=5
+    - types-protobuf >=5
     - aiofiles >=24
     - numpy >=1.26
 
