@@ -15,7 +15,7 @@ cxx_compiler_version:
 glib:
 - '2'
 libprotobuf:
-- 6.33.5
+- 7.35.1
 python_min:
 - '3.10'
 rust_compiler:
