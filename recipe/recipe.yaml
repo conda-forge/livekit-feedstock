@@ -32,7 +32,7 @@ requirements:
     - ${{ compiler('cxx') }}
     - ${{ compiler('rust') }}
     - clangdev
-    - if: target_platform == "linux-aarch64"
+    - if: linux
       then: lld
     - cargo-bundle-licenses
     - cargo-auditable
