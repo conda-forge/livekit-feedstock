@@ -9,6 +9,16 @@ export BINDGEN_EXTRA_CLANG_ARGS="--sysroot=${CONDA_BUILD_SYSROOT} -isystem ${BUI
 export PKG_CONFIG_ALLOW_CROSS=1
 export PKG_CONFIG_ALLOW_CROSS_${CARGO_BUILD_TARGET//-/_}=1
 
+if [[ "${target_platform}" == linux-* ]]; then
+  # The Rust compiler package activates GCC after Clang and overwrites CC.
+  # Restore Clang for cc-rs crates that compile bundled C/C++ sources.
+  export CC="${CLANG}"
+  rust_target="${CARGO_BUILD_TARGET//-/_}"
+  export "CC_${rust_target}=${CC}"
+  export "CXX_${rust_target}=${CXX}"
+  export "CARGO_TARGET_${rust_target^^}_LINKER=${CC}"
+fi
+
 pushd livekit-rtc
 
 pushd rust-sdks/livekit-ffi

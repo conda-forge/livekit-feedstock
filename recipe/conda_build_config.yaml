@@ -2,11 +2,11 @@ c_stdlib_version:  # [osx]
   - "12.3"         # [osx]
 MACOSX_SDK_VERSION:  # [osx]
   - "15.2"           # [osx]
-c_compiler:            # [win]
-  - clang              # [win]
-cxx_compiler:          # [win]
-  - clangxx            # [win]
-c_compiler_version:    # [win]
-- 21                   # [win]
-cxx_compiler_version:  # [win]
-- 21                   # [win]
+c_compiler:
+  - clang
+cxx_compiler:
+  - clangxx
+c_compiler_version:    # [win or linux]
+- 21                   # [win or linux]
+cxx_compiler_version:  # [win or linux]
+- 21                   # [win or linux]
