@@ -31,7 +31,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ compiler('rust') }}
-    - clangdev
+    - libclang
     - if: linux
       then: lld
     - cargo-bundle-licenses
