@@ -6,7 +6,7 @@ c_compiler:
   - clang
 cxx_compiler:
   - clangxx
-c_compiler_version:    # [win or linux]
-- 21                   # [win or linux]
-cxx_compiler_version:  # [win or linux]
-- 21                   # [win or linux]
+c_compiler_version:
+- 23
+cxx_compiler_version:
+- 23
