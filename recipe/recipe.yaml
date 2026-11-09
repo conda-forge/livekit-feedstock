@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.1.21"
+  version: "1.2.0"
 
 package:
   name: livekit
@@ -14,7 +14,6 @@ source:
     submodules: true
     patches:
       - fix-macos-wheel-tag.patch
-      - fix-struct-class-mismatch.patch
 
 build:
   number: 0
@@ -37,7 +36,7 @@ requirements:
     - cargo-bundle-licenses
     - cargo-auditable
     - libprotobuf
-    - pkg-config
+    - pkgconf
   host:
     - python      ${{ python_min }}.*
     - python-abi3 ${{ python_min }}.*
