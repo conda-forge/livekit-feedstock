@@ -47,6 +47,7 @@ requirements:
     - glib
     - if: linux
       then: libva
+    - zlib
   run:
     - python >=${{ python_min }}
     - protobuf >=5
